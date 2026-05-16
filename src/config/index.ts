@@ -1,8 +1,9 @@
 import 'dotenv/config'
 
 const requiredVars = [
-  'NODE_ENV',
   'PORT',
+  'DATABASE_URL',
+  'DIRECT_URL',
   'ACCESS_TOKEN_SECRET',
   'ACCESS_TOKEN_PUBLIC',
   'REFRESH_TOKEN_SECRET',
