@@ -9,7 +9,6 @@ COPY tsconfig.json tsconfig.build.json ./
 COPY src ./src
 COPY prisma ./prisma
 COPY scripts ./scripts
-COPY prisma.config.ts ./
 
 RUN npx prisma generate
 RUN npm run build
@@ -23,11 +22,9 @@ RUN addgroup --system app && adduser --system --ingroup app app
 COPY package.json package-lock.json ./
 RUN npm ci --omit=dev
 
-COPY tsconfig.build.json ./
-COPY prisma ./prisma
 COPY --from=build /app/dist ./dist
-
-RUN npx prisma generate
+COPY --from=build /app/node_modules/.prisma ./node_modules/.prisma
+COPY prisma ./prisma
 
 USER app
 
