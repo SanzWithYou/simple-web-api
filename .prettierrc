@@ -1,0 +1,14 @@
+{
+  "semi": false,
+  "singleQuote": true,
+  "tabWidth": 2,
+  "printWidth": 100,
+  "trailingComma": "none",
+  "endOfLine": "lf",
+  "bracketSpacing": true,
+  "quoteProps": "as-needed",
+  "proseWrap": "preserve",
+  "plugins": ["@ianvs/prettier-plugin-sort-imports", "prettier-plugin-packagejson"],
+  "importOrder": ["^(express|tsconfig-paths)", "^[a-z]", "^@", "^\\.", "^\\.\\../"],
+  "importOrderCaseSensitive": false
+}
