@@ -6,9 +6,9 @@ export interface IErrorDetail {
 export interface ITokenPayload {
   email: string
   username: string
-  role: string
+  role?: string
   jti: string
-  type: 'access' | 'refresh'
+  type?: 'access' | 'refresh'
 }
 
 export interface ApiResponse<T = unknown> {

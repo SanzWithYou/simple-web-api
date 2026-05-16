@@ -60,7 +60,7 @@ const verify = async (
     }
 
     if (expectedType === 'access') {
-      const requiredFields = ['email', 'username', 'role', 'type']
+      const requiredFields = ['email', 'username', 'type']
       const missingFields = requiredFields.filter((field) => !decoded[field])
       if (missingFields.length > 0) {
         throw new AppError(401, `Token is missing required fields: ${missingFields.join(', ')}`)

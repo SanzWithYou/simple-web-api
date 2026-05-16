@@ -12,7 +12,7 @@ export const authController = {
   login: asyncHandler(async (req: Request, res: Response) => {
     const results = await authService.login(req.body)
 
-    res.status(200).json(successResponse(results.message))
+    res.status(200).json(successResponse(results.message, results.data))
   }),
 
   me: asyncHandler(async (req: Request, res: Response) => {

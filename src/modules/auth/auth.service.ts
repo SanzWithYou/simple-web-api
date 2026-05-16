@@ -1,4 +1,5 @@
-import { AppError, comparePassword, hashPassword } from '@/lib'
+import * as crypto from 'crypto'
+import { AppError, comparePassword, hashPassword, signAccessToken, signRefreshToken } from '@/lib'
 import { userRepository } from '@/repository/user.repository'
 import type { ITokenPayload } from '@/types'
 import { authConflictError, authInvalidError, ConflictField } from './auth.errors'
@@ -68,9 +69,25 @@ export const authService = {
       throw new AppError(401, 'Authentication failed. Invalid credentials', errors)
     }
 
+    const accessToken = await signAccessToken({
+      username: user.username,
+      email: user.email,
+      jti: crypto.randomUUID()
+    })
+
+    const refreshToken = await signRefreshToken({
+      username: user.username,
+      email: user.email,
+      jti: crypto.randomUUID()
+    })
+
     return {
       status: 'success',
-      message: 'You have been logged in successfully'
+      message: 'You have been logged in successfully',
+      data: {
+        access_token: accessToken,
+        refresh_token: refreshToken
+      }
     }
   },
 

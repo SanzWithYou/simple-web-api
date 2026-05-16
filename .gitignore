@@ -6,5 +6,6 @@ logs/
 .env.production
 *.log
 .DS_Store
+api-test.http
 
 /generated/prisma

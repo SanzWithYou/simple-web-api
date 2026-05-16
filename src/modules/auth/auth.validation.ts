@@ -8,6 +8,9 @@ export const authValidation = {
       .max(20, 'Username must be less than 20 characters')
       .regex(/^[a-zA-Z0-9_]+$/, {
         message: 'Username can only contain letters, numbers, and underscores'
+      })
+      .refine((val) => !/on\w+|=|alert|prompt|confirm|eval|script|javascript|<|>/i.test(val), {
+        message: 'Username contains blocked XSS patterns'
       }),
 
     email: z.email('Please enter a valid email address'),

@@ -7,7 +7,7 @@ Express 5 + Prisma + Paseto + Supabase PostgreSQL. Modular backend with auto rou
 - **Express 5** — async HTTP framework
 - **Prisma 7** + **Supabase PostgreSQL** — connection pooling via `@prisma/adapter-pg`
 - **Paseto v4** — stateless access & refresh tokens
-- **Zod** — request validation
+- **Zod** — request validation (including XSS pattern blocking)
 - **Helmet** — security headers
 - **Winston** — structured logging
 - **Husky** — pre-commit lint + typecheck
@@ -51,7 +51,7 @@ src/
       auth.type.ts
 
   routes/               → route wiring (validator → controller)
-    auth.route.ts       → POST /api/auth/register, POST /api/auth/login
+    auth.route.ts       → POST register, POST login, GET me
     health.route.ts     → GET /api/health
 ```
 
