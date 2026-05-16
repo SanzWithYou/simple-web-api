@@ -26,6 +26,8 @@ COPY --from=build /app/dist ./dist
 COPY --from=build /app/node_modules/.prisma ./node_modules/.prisma
 COPY prisma ./prisma
 
+RUN mkdir -p logs && chown -R app:app logs
+
 USER app
 
 EXPOSE 3000
