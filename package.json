@@ -5,11 +5,12 @@
   "type": "commonjs",
   "main": "dist/index.js",
   "scripts": {
-    "build": "npm run clean && tsc -p tsconfig.build.json && tsc-alias -p tsconfig.build.json",
+    "build": "npm run clean && npm run generate && tsc -p tsconfig.build.json && tsc-alias -p tsconfig.build.json",
     "clean": "rimraf dist",
     "dev": "dotenv -e .env.development -- tsx watch src/index.ts",
     "format": "prettier . --write",
     "format:check": "prettier . --check",
+    "generate": "npx prisma generate",
     "generate:key": "tsx scripts/generate-key.ts",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
