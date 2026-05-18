@@ -43,17 +43,13 @@ export const env = {
 } as const
 
 console.log(`
-╔═══════════════════════════════════════════════════╗
-║           ENVIRONMENT CONFIGURATION               ║
-╠═══════════════════════════════════════════════════╣
-║ Environment:  ${env.nodeEnv.toUpperCase().padEnd(36)}║
-║ Port:         ${env.port.toString().padEnd(36)}║
-║ Log Level:    ${env.logLevel.padEnd(36)}║
-║ CORS Origin:  ${env.cors.origin.padEnd(36)}║
-║ DB Host:      ${env.db.host.padEnd(36)}║
-║ DB Port:      ${env.db.port.toString().padEnd(36)}║
-║ DB Name:      ${env.db.name.padEnd(36)}║
-║ DB URL:       ${env.db.databaseUrl ? 'connected'.padEnd(36) : 'not set'.padEnd(36)}║
-║ API URL:      ${env.apiUrl.padEnd(36)}║
-╚═══════════════════════════════════════════════════╝
+  Environment:  ${env.nodeEnv.toUpperCase()}
+  Port:         ${env.port}
+  Log Level:    ${env.logLevel}
+  CORS Origin:  ${env.cors.origin}
+  DB Host:      ${env.db.host}
+  DB Port:      ${env.db.port}
+  DB Name:      ${env.db.name}
+  DB URL:       ${env.db.databaseUrl ? 'connected' : 'not set'}
+  API URL:      ${env.apiUrl}
 `)
